@@ -1,0 +1,13 @@
+install.packages('devtools')
+install.packages("rstudio/keras")
+library(keras)
+install_tensorflow()
+data<-dataset_mnist()
+train_x<-data$train$x
+train_y<-data$train$y
+test_x<-data$test$x
+test_y<-data$test$y
+train_x <- array(as.numeric(train_x), dim = c(dim(train_x)[[1]], 784))
+test_x <- array(as.numeric(test_x), dim = c(dim(test_x)[[1]], 784))
+train_x <- train_x / 255
+test_x <- test_x / 255 #資料處理
